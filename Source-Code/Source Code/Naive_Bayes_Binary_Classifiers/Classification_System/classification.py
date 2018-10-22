@@ -1,5 +1,6 @@
 import collections, itertools
-from nltk import metrics
+from nltk import metrics, masi_distance
+from nltk.metrics.scores import accuracy, precision, recall, f_measure
 from nltk.classify import util, ClassifierI, MultiClassifierI
 from nltk.probability import FreqDist
 
@@ -20,9 +21,9 @@ def precision_recall_F_Measure(classifier, testfeats):
 	f = {}
 	
 	for label in classifier.labels():
-		precisions[label] = metrics.precision(refsets[label], testsets[label])
-		recalls[label] = metrics.recall(refsets[label], testsets[label])
-		f[label] = metrics.f_measure(refsets[label], testsets[label])
+		precisions[label] = precision(refsets[label], testsets[label])
+		recalls[label] = recall(refsets[label], testsets[label])
+		f[label] = f_measure(refsets[label], testsets[label])
 
 	
 	return precisions, recalls , f
@@ -93,14 +94,14 @@ def multi_metrics(multi_classifier, test_feats):
 		for label in guessed:
 			testsets[label].add(i)
 		
-		mds.append(metrics.masi_distance(set(labels), guessed))
+		mds.append(masi_distance(set(labels), guessed))
 	
 	avg_md = sum(mds) / float(len(mds))
 	precisions = {}
 	recalls = {}
 	
 	for label in multi_classifier.labels():
-		precisions[label] = metrics.precision(refsets[label], testsets[label])
-		recalls[label] = metrics.recall(refsets[label], testsets[label])
+		precisions[label] = precision(refsets[label], testsets[label])
+		recalls[label] = recall(refsets[label], testsets[label])
 	
 	return precisions, recalls, avg_md
