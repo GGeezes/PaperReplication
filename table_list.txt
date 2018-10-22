@@ -1,4 +1,5 @@
 # TABLES:
+
 # Bug_Report_Data, 
 # Bug_Report_Data_Test, 
 # Bug_Report_Data_Train, 
@@ -23,3 +24,29 @@
 # Not_UserExperience_Data, 
 # Not_UserExperience_Data_Test, 
 # Not_UserExperience_Data_Train, 
+
+# COLUMNS:
+
+# id,
+# appId,
+# reviewId,
+# title,
+# comment,
+# rating,
+# reviewer,
+# fee,
+# date,
+# dataSource,
+# stopwords_removal,
+# lemmatized_comment,
+# stemmed,
+# sentiScore,
+# sentiScore_pos,
+# sentiScore_neg,
+# stopwords_removal_nltk,
+# stopwords_removal_lemmatization,
+# length_words,
+# present_simple,
+# present_con,
+# past,
+# future
