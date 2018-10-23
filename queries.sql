@@ -13,3 +13,7 @@ SELECT GROUP_CONCAT(COLUMN_NAME SEPARATOR ', ')
 
 
 SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+
+SELECT *
+    FROM re2015_training_set.Feature_OR_Improvment_Request_Data 
+    WHERE comment LIKE '%&#%';
