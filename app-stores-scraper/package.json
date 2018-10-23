@@ -1,0 +1,17 @@
+{
+  "name": "app-stores-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "app-store-scraper": "^0.13.0",
+    "google-play-scraper": "^6.2.0"
+  }
+}
