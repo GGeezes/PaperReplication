@@ -105,3 +105,6 @@ venv.bak/
 
 # Mac Files
 *.DS_Store
+
+# Dependency directories - node
+node_modules/
