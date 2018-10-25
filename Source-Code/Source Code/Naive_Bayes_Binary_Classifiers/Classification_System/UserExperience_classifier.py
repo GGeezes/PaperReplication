@@ -115,7 +115,7 @@ class UserExperience_classifier:
             senti_neg_dict.update({decoded_row: senti_neg})
 
             train.append((decoded_row, 'UserExperience'))
-            train.append((decoded_row_1, 'UserExperience'))
+            #train.append((decoded_row_1, 'UserExperience'))
         
         
 
@@ -159,7 +159,7 @@ class UserExperience_classifier:
             senti_neg_dict.update({decoded_row: senti_neg})
 
             train.append((decoded_row, 'Not_UserExperience'))
-            train.append((decoded_row_1, 'Not_UserExperience'))
+            #train.append((decoded_row_1, 'Not_UserExperience'))
         
         self.cur.execute("SELECT * FROM UserExperience_Data_Test")
 

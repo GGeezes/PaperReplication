@@ -145,7 +145,9 @@ class Bug_classifier:
 
         for row in self.cur.fetchall() :
             decoded_row = str(row[17])
+            decoded_row_1 = str(row[3])
             decoded_row = str(decoded_row.decode('utf-8',errors = 'ignore'))
+            decoded_row_1 = str(decoded_row_1.decode('utf-8',errors = 'ignore')) 
             rating = row[5]
             sentiScore = row[13]
             senti_pos = row[14]

@@ -115,7 +115,7 @@ class Rating_classifier:
             senti_neg_dict.update({decoded_row: senti_neg})
 
             train.append((decoded_row, 'rating'))
-            train.append((decoded_row_1, 'rating'))
+            #train.append((decoded_row_1, 'rating'))
          
 
 
@@ -155,7 +155,7 @@ class Rating_classifier:
             senti_pos_dict.update({decoded_row: senti_pos})
             senti_neg_dict.update({decoded_row: senti_neg}) 
             train.append((decoded_row, 'Not_rating'))
-            train.append((decoded_row_1, 'Not_rating'))
+            #train.append((decoded_row_1, 'Not_rating'))
         
         self.cur.execute("SELECT * FROM Rating_Data_Test")
 
