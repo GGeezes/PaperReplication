@@ -1,0 +1,22 @@
+Training the Classifier (Rating Classifier)
+Testing the accuracy of the classifier
+Precisions_rating:
+0.779141104294
+Recalls_rating :
+0.814102564103
+F-measure_rating
+0.796238244514
+Accuracy:
+0.757009345794
+Most Informative Features
+         contains(since) = True           Not_ra : rating =     13.0 : 1.0
+          contains(file) = True           Not_ra : rating =     11.7 : 1.0
+          contains(back) = True           Not_ra : rating =     11.7 : 1.0
+           contains(pay) = True           Not_ra : rating =     11.0 : 1.0
+        contains(update) = True           Not_ra : rating =      9.9 : 1.0
+       contains(because) = True           Not_ra : rating =      8.3 : 1.0
+             contains(7) = True           Not_ra : rating =      7.7 : 1.0
+          contains(also) = True           Not_ra : rating =      7.4 : 1.0
+          contains(last) = True           Not_ra : rating =      7.0 : 1.0
+             contains(1) = True           Not_ra : rating =      7.0 : 1.0
+None

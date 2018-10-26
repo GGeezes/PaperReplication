@@ -12,14 +12,13 @@ def unescape(text):
     return unicode(BeautifulStoneSoup(text, convertEntities=BeautifulStoneSoup.ALL_ENTITIES))
 
 for table in tables :
-    dbcur.execute('SELECT id, comment FROM {} WHERE comment LIKE \'%&#%\';'.format(table))
-    dbcur.
+    dbcur.execute('SELECT id, stopwords_removal_lemmatization FROM {} WHERE stopwords_removal_lemmatization LIKE \'%&#%\';'.format(table))
     row_cnt = dbcur.rowcount
     for (id, comment) in dbcur :
         comment_fixed = unescape(comment)
         assert (comment != comment_fixed)
         sql = 'UPDATE {} SET comment=\'{}\' WHERE id={} '.format(table, db.escape_string(comment_fixed), id)
-        dbcur.execute(sql)
+        # dbcur.execute(sql)
 
     print ('Table {} DONE, fixed: {} rows'.format(table, row_cnt))
 

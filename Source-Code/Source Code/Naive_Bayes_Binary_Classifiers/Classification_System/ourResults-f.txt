@@ -1,0 +1,22 @@
+Training the Classifier
+Testing the accuracy of the classifier (Feature Classifier)
+Precisions_feature_improvment :
+0.152709359606
+Recalls_feature_improvment :
+0.756097560976
+F-measure_feature_improvment
+0.254098360656
+Accuracy:
+0.659813084112
+Most Informative Features
+           contains(add) = True           featur : Not_fe =      6.9 : 1.0
+          contains(also) = True           featur : Not_fe =      6.9 : 1.0
+         contains(crash) = True           featur : Not_fe =      5.8 : 1.0
+         contains(phone) = True           featur : Not_fe =      5.8 : 1.0
+          contains(open) = True           featur : Not_fe =      5.6 : 1.0
+           contains(too) = True           featur : Not_fe =      5.1 : 1.0
+          contains(back) = True           featur : Not_fe =      5.1 : 1.0
+        contains(button) = True           featur : Not_fe =      5.0 : 1.0
+         contains(could) = True           featur : Not_fe =      4.8 : 1.0
+               rating(2) = True           featur : Not_fe =      4.8 : 1.0
+None

@@ -215,7 +215,7 @@ class Bug_classifier:
             senti_pos_dict.update({decoded_row: senti_pos})
             senti_neg_dict.update({decoded_row: senti_neg})
             decoded_row = str(decoded_row.decode('utf-8',errors = 'ignore'))
-            decoded_row_1 = str(decoded_row_1.decode('utf-8',errors = 'ignore'))
+
             test.append((decoded_row, 'bug'))
 
 
@@ -253,7 +253,6 @@ class Bug_classifier:
             senti_pos_dict.update({decoded_row: senti_pos})
             senti_neg_dict.update({decoded_row: senti_neg})
             decoded_row = str(decoded_row.decode('utf-8',errors = 'ignore'))
-            decoded_row_1 = str(decoded_row_1.decode('utf-8',errors = 'ignore'))
 
             test.append((decoded_row, 'Not_Bug_Report'))
 

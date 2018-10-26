@@ -1,6 +1,7 @@
 import MySQLdb
 import csv 
 import fileinput
+from unidecode import unidecode
 
 tables = ["Bug_Report_Data_Test", "Not_Bug_Report_Data_Test",
           "Feature_OR_Improvment_Request_Data_Test", "Not_Feature_OR_Improvment_Request_Data_Test",
@@ -13,13 +14,15 @@ db.autocommit(True)
 db.begin()
 cur = db.cursor()
 
+rowId = 0
+
 for table in tables:
     cur.execute('TRUNCATE TABLE `%s`;'%table)
     db.commit()
 
 
 def insertRecord(tableName, values):     
-    cur.execute('INSERT INTO '+ tableName +' (appId, reviewId, title, comment, rating, reviewer, fee, date, dataSource, sentiScore, sentiScore_pos, sentiScore_neg) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',values)
+    cur.execute('INSERT INTO '+ tableName +' (id, appId, reviewId, title, comment, rating, reviewer, fee, date, dataSource, sentiScore, sentiScore_pos, sentiScore_neg) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', values)
     db.commit()
 
 def getSentiScores(fileName):
@@ -41,10 +44,15 @@ def getSentiScores(fileName):
                 sentiScores[id] = (sentiscore, sentipos, sentineg)
     return sentiScores
 
+def unicode_csv_reader(utf8_data, delimiter = ","):
+    csv_reader = csv.reader(utf8_data, delimiter = delimiter)
+    for row in csv_reader:
+        yield [unicode(cell, 'utf-8') for cell in row]
+
 sentiScores = getSentiScores('Sentiscores.csv')
 
 with open("replication_data_labeled_final.csv", "rb") as file:
-    file_reader = csv.reader(file, delimiter = ",")
+    file_reader = unicode_csv_reader(file)
     file_reader.next() #skip header
     seen = set()
     removed_rows = 0
@@ -57,12 +65,13 @@ with open("replication_data_labeled_final.csv", "rb") as file:
         seen.add(row[3])
 
         values = (
+            rowId,
             row[2], # appId 
             hash(row[3]), # reviewId
-            row[4], # title
-            row[5], # comment
+            unidecode(row[4]), # title
+            unidecode(row[5]), # comment
             row[6], # rating
-            row[7], # reviewer 
+            unidecode(row[7]), # reviewer 
             row[8], # fee
             row[9], # data
             row[11], #dataSource
@@ -71,6 +80,8 @@ with open("replication_data_labeled_final.csv", "rb") as file:
             sentiScores[id][2] #sentiment neg
             )
         
+        rowId+=1
+
         if (int(row[12]) == 1): # is_userExperience
             insertRecord(tables[6], values)
         else:

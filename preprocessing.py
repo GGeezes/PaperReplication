@@ -1,9 +1,11 @@
 import MySQLdb
 from contractions import expandContractions
 
+import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize, TweetTokenizer, RegexpTokenizer
 from nltk.corpus import stopwords
+import simplified_tags
 
 db = MySQLdb.connect(host="127.0.0.1", user="root", db="re2015_training_set") 
 db.autocommit(True)
@@ -23,6 +25,11 @@ u"weren't", u'these', u'will', u'ain', u'theirs', u'my', u'and', u've', u'then',
 
 tables = ["Bug_Report_Data", "Bug_Report_Data_Test", "Bug_Report_Data_Train", "Feature_OR_Improvment_Request_Data", "Feature_OR_Improvment_Request_Data_Test", "Feature_OR_Improvment_Request_Data_Train", "Not_Bug_Report_Data", "Not_Bug_Report_Data_Test", "Not_Bug_Report_Data_Train", "Not_Feature_OR_Improvment_Request_Data", "Not_Feature_OR_Improvment_Request_Data_Test", "Not_Feature_OR_Improvment_Request_Data_Train", "Not_Rating_Data", "Not_Rating_Data_Test", "Not_Rating_Data_Train", "Not_UserExperience_Data", "Not_UserExperience_Data_Test", "Not_UserExperience_Data_Train", "Rating_Data", "Rating_Data_Test", "Rating_Data_Train", "UserExperience_Data", "UserExperience_Data_Test", "UserExperience_Data_Train"]
 
+test_tables = ["Bug_Report_Data_Test", "Not_Bug_Report_Data_Test",
+          "Feature_OR_Improvment_Request_Data_Test", "Not_Feature_OR_Improvment_Request_Data_Test",
+          "Rating_Data_Test", "Not_Rating_Data_Test",
+          "UserExperience_Data_Test", "Not_UserExperience_Data_Test"]
+
 for table in tables:
     dbcur.execute('SELECT id, comment, stopwords_removal, stopwords_removal_lemmatization FROM {}'.format(table))
     
@@ -32,6 +39,25 @@ for table in tables:
             exp = expandContractions(lower)
             decoded = exp.decode('utf-8', errors = 'ignore')  #ugly hack from orig codebase
             words = tok.tokenize(decoded)
+            
+            tagged = nltk.pos_tag(words)
+            tagged_simple = [(word, simplified_tags.simplify_brown_tag(tag)) for word, tag in tagged]
+            present_simple = 0
+            present_cont = 0
+            past = 0
+            future = 0
+
+            for (word, tag) in tagged_simple :
+                if (tag == 'V') :
+                    present_simple += 1
+                if (tag == 'VG') :
+                    present_cont += 1
+                if (tag == 'VD') or (tag == 'VN') :
+                    past += 1
+                if (word == 'will') :
+                    future += 1
+                
+
             words_filtered = [lemm.lemmatize(w, 'v') for w in words if w not in stop_words]
             comm_sw_new = ' '.join(words_filtered)
 
@@ -40,7 +66,7 @@ for table in tables:
             #print("---------------------------------")
             
             #UPDATE DATA - be careful :)
-            #dbcur.execute('UPDATE {} SET stopwords_removal_lemmatization="{}" WHERE id={} '.format(table, comm_sw_new, id))
+            dbcur.execute('UPDATE {} SET stopwords_removal_lemmatization=\'{}\', present_simple={}, present_con={}, past={}, future={} WHERE id={} '.format(table, db.escape_string(comm_sw_new), present_simple, present_cont, past, future, id))
     
     print ('Table: {} DONE'.format(table))
 

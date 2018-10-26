@@ -1,0 +1,22 @@
+Training the Classifier (Bug Classifier)
+Testing the accuracy of the classifier
+Precisions_bug :
+0.439252336449
+Recalls_bug :
+0.959183673469
+F-measure_Bug
+0.602564102564
+Accuracy:
+0.768224299065
+Most Informative Features
+          contains(open) = True              bug : Not_Bu =     21.7 : 1.0
+         contains(crash) = True              bug : Not_Bu =     15.3 : 1.0
+           contains(fix) = True              bug : Not_Bu =     14.6 : 1.0
+            contains(do) = True              bug : Not_Bu =     12.9 : 1.0
+          contains(last) = True              bug : Not_Bu =     12.3 : 1.0
+          contains(easy) = True           Not_Bu : bug    =     11.6 : 1.0
+          contains(file) = True              bug : Not_Bu =     11.5 : 1.0
+        contains(freeze) = True              bug : Not_Bu =      9.1 : 1.0
+       contains(version) = True              bug : Not_Bu =      7.4 : 1.0
+         contains(share) = True              bug : Not_Bu =      7.2 : 1.0
+None

@@ -196,7 +196,6 @@ class UserExperience_classifier:
             senti_pos_dict.update({decoded_row: senti_pos})
             senti_neg_dict.update({decoded_row: senti_neg})
             decoded_row = str(decoded_row.decode('utf-8',errors = 'ignore'))
-            decoded_row_1 = str(decoded_row_1.decode('utf-8',errors = 'ignore'))
             test.append((decoded_row, 'UserExperience'))
 
 
@@ -236,7 +235,6 @@ class UserExperience_classifier:
             senti_pos_dict.update({decoded_row: senti_pos})
             senti_neg_dict.update({decoded_row: senti_neg})
             decoded_row = str(decoded_row.decode('utf-8',errors = 'ignore'))
-            decoded_row_1 = str(decoded_row_1.decode('utf-8',errors = 'ignore'))
             test.append((decoded_row, 'Not_UserExperience'))
         self.db.commit()  
         return train , rating_dict , test , senti_dict , senti_pos_dict , senti_neg_dict , present_simple_dict , past_simple_dict ,future_dict ,present_con_dict

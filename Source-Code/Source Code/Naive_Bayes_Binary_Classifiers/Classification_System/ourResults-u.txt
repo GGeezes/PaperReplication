@@ -1,0 +1,22 @@
+Training the Classifier (User Experience Classifier)
+Testing the accuracy of the classifier
+Precisions_UserExperience :
+0.565217391304
+Recalls_UserExperience :
+0.630303030303
+F-measure_UserExperience
+0.595988538682
+Accuracy:
+0.736448598131
+Most Informative Features
+      contains(evernote) = True           UserEx : Not_Us =     13.0 : 1.0
+        contains(always) = True           UserEx : Not_Us =     11.0 : 1.0
+               rating(1) = True           Not_Us : UserEx =     10.7 : 1.0
+         senti_Score(-3) = True           Not_Us : UserEx =      9.0 : 1.0
+          contains(info) = True           UserEx : Not_Us =      9.0 : 1.0
+        contains(travel) = True           UserEx : Not_Us =      9.0 : 1.0
+           contains(fix) = True           Not_Us : UserEx =      9.0 : 1.0
+          contains(plan) = True           UserEx : Not_Us =      7.7 : 1.0
+          contains(life) = True           UserEx : Not_Us =      7.0 : 1.0
+        contains(search) = True           UserEx : Not_Us =      7.0 : 1.0
+None
