@@ -1,0 +1,88 @@
+Training the Classifier (Bug Classifier)
+Testing the accuracy of the classifier
+Precisions_bug :
+0.622377622378
+Recalls_bug :
+0.780701754386
+F-measure_Bug
+0.692607003891
+Accuracy:
+0.65350877193
+Most Informative Features
+          contains(open) = True              bug : Not_Bu =     23.0 : 1.0
+         contains(crash) = True              bug : Not_Bu =     16.2 : 1.0
+           contains(fix) = True              bug : Not_Bu =     15.4 : 1.0
+            contains(do) = True              bug : Not_Bu =     13.7 : 1.0
+          contains(last) = True              bug : Not_Bu =     13.0 : 1.0
+          contains(file) = True              bug : Not_Bu =     12.2 : 1.0
+          contains(easy) = True           Not_Bu : bug    =     11.0 : 1.0
+        contains(freeze) = True              bug : Not_Bu =      9.7 : 1.0
+       contains(version) = True              bug : Not_Bu =      7.8 : 1.0
+         contains(share) = True              bug : Not_Bu =      7.7 : 1.0
+None
+Training the Classifier
+Testing the accuracy of the classifier (Feature Classifier)
+Precisions_feature_improvment :
+0.730337078652
+Recalls_feature_improvment :
+0.738636363636
+F-measure_feature_improvment
+0.734463276836
+Accuracy:
+0.767326732673
+Most Informative Features
+          contains(also) = True           featur : Not_fe =      7.8 : 1.0
+           contains(add) = True           featur : Not_fe =      7.4 : 1.0
+         contains(crash) = True           featur : Not_fe =      6.6 : 1.0
+         contains(phone) = True           featur : Not_fe =      6.6 : 1.0
+          contains(open) = True           featur : Not_fe =      6.3 : 1.0
+           contains(too) = True           featur : Not_fe =      5.8 : 1.0
+          contains(back) = True           featur : Not_fe =      5.8 : 1.0
+        contains(button) = True           featur : Not_fe =      5.7 : 1.0
+               rating(2) = True           featur : Not_fe =      5.4 : 1.0
+        contains(screen) = True           featur : Not_fe =      5.4 : 1.0
+None
+Training the Classifier (User Experience Classifier)
+Testing the accuracy of the classifier
+Precisions_UserExperience :
+0.934426229508
+Recalls_UserExperience :
+0.5
+F-measure_UserExperience
+0.651428571429
+Accuracy:
+0.732456140351
+Most Informative Features
+      contains(evernote) = True           UserEx : Not_Us =     13.0 : 1.0
+        contains(always) = True           UserEx : Not_Us =     11.0 : 1.0
+               rating(1) = True           Not_Us : UserEx =     10.7 : 1.0
+         senti_Score(-3) = True           Not_Us : UserEx =      9.0 : 1.0
+          contains(info) = True           UserEx : Not_Us =      9.0 : 1.0
+        contains(travel) = True           UserEx : Not_Us =      9.0 : 1.0
+           contains(fix) = True           Not_Us : UserEx =      9.0 : 1.0
+          contains(plan) = True           UserEx : Not_Us =      7.7 : 1.0
+          contains(life) = True           UserEx : Not_Us =      7.0 : 1.0
+        contains(search) = True           UserEx : Not_Us =      7.0 : 1.0
+None
+Training the Classifier (Rating Classifier)
+Testing the accuracy of the classifier
+Precisions_rating:
+0.809523809524
+Recalls_rating :
+0.745614035088
+F-measure_rating
+0.776255707763
+Accuracy:
+0.785087719298
+Most Informative Features
+         contains(since) = True           Not_ra : rating =     13.0 : 1.0
+          contains(file) = True           Not_ra : rating =     11.7 : 1.0
+          contains(back) = True           Not_ra : rating =     11.7 : 1.0
+           contains(pay) = True           Not_ra : rating =     11.0 : 1.0
+        contains(update) = True           Not_ra : rating =      9.9 : 1.0
+       contains(because) = True           Not_ra : rating =      8.3 : 1.0
+             contains(7) = True           Not_ra : rating =      7.7 : 1.0
+          contains(also) = True           Not_ra : rating =      7.4 : 1.0
+          contains(last) = True           Not_ra : rating =      7.0 : 1.0
+             contains(1) = True           Not_ra : rating =      7.0 : 1.0
+None
