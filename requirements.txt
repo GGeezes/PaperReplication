@@ -27,7 +27,7 @@ gevent==1.0
 greenlet==0.4.2
 gyp==0.1
 html5lib==0.999
-httplib2==0.8
+httplib2==0.18.0
 lockfile==0.8
 logging==0.4.9.6
 logilab-common==0.61.0
