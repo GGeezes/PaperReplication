@@ -67,7 +67,7 @@ system-service==0.1.6
 textblob==0.15.1
 tzlocal==1.5.1
 unity-lens-photos==1.0
-urllib3==1.7.1
+urllib3==1.26.5
 vboxapi==1.0
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
